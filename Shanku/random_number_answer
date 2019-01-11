@@ -1,0 +1,33 @@
+import random
+
+guessesTaken = 0
+print("Hello player, what is your name ?")
+myName = input()
+number = random.randint(1, 20)
+print("Hi! "+myName+" lets start the guessing game. ")
+print("Well! I am thinking of a number between 1 and 20.")
+while guessesTaken < 6:
+    print("Can you take a guess please !")
+
+    guess = input()
+    guess = int(guess)
+    guessesTaken = guessesTaken+1
+    if guess != number:
+        number1 = str(number)
+        print("Nope, this is not the number I was thinking.")
+
+        if guess < number:
+            print("Your guess is too low !")
+
+        elif guess > number:
+            print("Your guess is too high !")
+
+    else:
+        #guess == number:
+        guessesTaken = int(guessesTaken)
+        print("Good job, " + myName + "! You guessed my number in " , guessesTaken , " guesses!")
+        number = random.randint(1, 20)
+        guessesTaken =0
+        game_action = input('Hello, ' + myName + ' if you want to leave the game Type "exit the game", else press enter to continue')
+        if game_action == "exit the game" :
+            break
